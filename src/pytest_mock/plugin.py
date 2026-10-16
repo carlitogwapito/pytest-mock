@@ -139,6 +139,10 @@ class MockerFixture:
                 mock_item.mock.spy_return_list = []
             if hasattr(mock_item.mock, "spy_return_iter"):
                 mock_item.mock.spy_return_iter = None
+            if hasattr(mock_item.mock, "spy_return"):
+                mock_item.mock.spy_return = None
+            if hasattr(mock_item.mock, "spy_exception"):
+                mock_item.mock.spy_exception = None
             # ``reset_mock`` is defined on ``NonCallableMock``, which is the base
             # of every mock class. Autospecced *functions* are plain functions
             # carrying a no-argument ``reset_mock`` closure, so they take the

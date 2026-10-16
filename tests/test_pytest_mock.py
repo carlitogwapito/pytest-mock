@@ -446,6 +446,12 @@ class TestSpy:
 
         # Testing spy can still be reset (#237).
         mocker.resetall()
+        self.assert_spy_has_no_return(spy)
+
+        with pytest.raises(ValueError):
+            Foo().bar(0)
+        mocker.resetall()
+        assert spy.spy_exception is None
 
         with pytest.raises(ValueError):
             Foo().bar(0)
